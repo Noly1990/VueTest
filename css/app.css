@@ -1,0 +1,13 @@
+
+.btncss {
+    background-color: blue;
+    transform: skewX(-45deg);
+}
+
+.twtest {
+    border-image: url(img/111.png);
+    width: 400px;
+    height: 300px;
+    border: 1px solid blue;
+    background: repeating-linear-gradient(to right,#fb3,#fb3 15px,#58a 15px,#58a 30px);
+}

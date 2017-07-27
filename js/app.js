@@ -1,56 +1,56 @@
 Vue.component("todo-item", {
-    template: '\
+	template: '\
     <li>\{{ title }}\<button @click="$emit(\'remove\')">delete</button>\
     </li>\
   ',
-    props: ['title']
+	props: ['title']
 });
 
 Vue.component("yj-img", {
-    template: '\
+	template: '\
     <img v-bind:src="address" alt="try img cpnt" title="img title">\
     </img>\
   ',
-    props: ['address']
+	props: ['address']
 });
 
 
 new Vue({
-    el: '#todoList',
-    data: {
-        newText: '',
-        address: 'img/111.png',
-        todos: ['aaa', 'bbb', 'ccc']
-    },
-    methods: {
-        addNewItem: function() {
-            this.todos.push(this.newText);
-            this.newText = '';
-        },
-        removeItem: function(index) {
-            this.todos.splice(index, 1);
-            console.log(this.todos);
-        }
-    }
+	el: '#todoList',
+	data: {
+		newText: '',
+		address: 'img/111.png',
+		todos: ['aaa', 'bbb', 'ccc']
+	},
+	methods: {
+		addNewItem: function () {
+			this.todos.push(this.newText);
+			this.newText = '';
+		},
+		removeItem: function (index) {
+			this.todos.splice(index, 1);
+			console.log(this.todos);
+		}
+	}
 });
 
 
 
 new Vue({
-    el: "#eltest",
-    data: {
-        vdata: 22
-    },
-    template: "<li @click='todoSth'>{{vdata}}</li>",
-    methods: {
-        todoSth: function() {
-            this.$http.get('./111.txt').then(function(res) {
-                console.log(res.body);
-            }, function(error) {
-                console.log(error.type);
-            });
-        }
-    }
+	el: "#eltest",
+	data: {
+		vdata: 22
+	},
+	template: "<li @click='todoSth'>{{vdata}}</li>",
+	methods: {
+		todoSth: function () {
+			this.$http.get('./111.txt').then(function (res) {
+				console.log(res.body);
+			}, function (error) {
+				console.log(error.type);
+			});
+		}
+	}
 });
 
 
@@ -71,21 +71,46 @@ new Vue({
 
 
 //test vue-router
-const aaa={template:'<p>I am aaa component</p>'};
-const bbb={template:'<div>I am bbb component</div>'};
+const aaa = { template: '<p>I am aaa component</p>' };
+const bbb = { template: '<div>I am bbb component</div>' };
 
-const routes=[
-    {path:'/aaa',
-    component:aaa
+const routes = [
+	{
+		path: '/aaa',
+		component: aaa
 
-    },{
-path:'/bbb',
-    component:bbb
-    }
+	}, {
+		path: '/bbb',
+		component: bbb
+	}
 ];
 
-const router=new VueRouter({
-    routes
+const router = new VueRouter({
+	routes
 });
 
-const routertest=new Vue({router}).$mount("#routertest");
+const routertest = new Vue({ router }).$mount("#routertest");
+
+
+
+
+//cpnttest 组件练习
+
+
+var cpnttest=new Vue({
+	el:"#cpnttest",
+	data:{
+		currentView:'aa'
+	},
+	components:{
+		aa:{
+			template:"<p>aaaaaaa</p>"
+		},
+		bb:{
+			template:"<p>bbbbbbbb</p>"
+		},
+		cc:{
+			template:"<p>cccccccc</p>"
+		}
+	}
+});

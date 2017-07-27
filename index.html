@@ -26,6 +26,13 @@
         <router-view></router-view>
     </div>
 
+    <div id="cpnttest">
+        <div v-bind:is="currentView" :ref="currentView"></div>
+    </div>
+
+
+    <button class="btncss">button</button>
+    <div class="twtest"></div>
     <script src="js/vue-2.3.4.js"></script>
     <script src="js/vue-router.js"></script>
     <script src="js/vuex-2.3.1.js"></script>
